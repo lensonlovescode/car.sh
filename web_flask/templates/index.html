@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carsh</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/example.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/filter.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+
+
+</head>
+<body>
+<header>
+<ul>
+    <li>Home</li>
+    <li>Discover</li>
+    <li>howto</li>
+    <li>Search</li>
+
+</ul>
+
+</header>
+<div class="container">
+    <section id="filter" >
+        <div class="filter-column" >
+            <label for="make">Make</label>
+            <select name="make" id="make">
+                <option value="volvo">Volvo</option>
+                <option value="volvo">Volvo</option>
+                <option value="volvo">Volvo</option>
+                <option value="volvo">Volvo</option>
+                <option value="volvo">Volvo</option>
+            </select>
+        </div>
+        <div class="filter-column">
+            <label for="model">Model</label>
+            <select name="type" id="type">
+                <option value="volvo">Volvo</option>
+            </select>
+        </div>
+        <div class="filter-column">
+            <label for="year">Year</label>
+            <select name="year" id="">
+                <option value="volvo">Volvo</option>
+            </select>
+        </div>   
+        <div class="filter-column" >
+            <button>Search</button>
+        </div>  
+    </section>
+    <section id="car-items">
+        <div class="car-item"></div>
+        <div class="car-item"></div>
+        <div class="car-item"></div>
+    </section>
+</div>
+</body>
+</html>
+
