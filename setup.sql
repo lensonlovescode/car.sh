@@ -6,6 +6,8 @@ CREATE USER 'carsh_dev'@'localhost' IDENTIFIED BY 'carsh@1hDbTVi4';
 
 GRANT ALL PRIVILEGES ON carsh_dev.* TO 'carsh_dev'@'localhost';
 
+GRANT ALL PRIVILEGES  ON carsh.* TO 'carsh_dev'@'localhost';
+
 GRANT SELECT ON performance_schema.* TO 'carsh_dev'@'localhost';
 
 FLUSH PRIVILEGES;

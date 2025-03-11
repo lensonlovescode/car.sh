@@ -5,20 +5,20 @@ Contains the database storage engine
 
 
 class Storage():
-   """
-   The database storage class
-   """
-   __session = None
-   __engine = None
+    """
+    The database storage class
+    """
+    __session = None
+    __engine = None
 
-   def __init__():
+    def __init__(self):
        """
        The constructor method
        """
        self.__engine = create_engine("mysql+pymysql://carsh_dev:carsh@1hDbTVi4@localhost/carsh", pool_pre_ping=True)
 
        if getenv('env', default='production') == "test":
-       	       Base.metadata.drop_all(self.__engine)
+           Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
         """"
@@ -34,7 +34,7 @@ class Storage():
                 key = "{}.{}".format(type(obj).__name__, obj.id)
                 objects[key] = obj
         else:
-            classes = [BaseModel, Category, Manufacturer, FuelType, Model]
+            classes = [Category, Manufacturer, FuelType, Model]
             for element in classes:
                 query = self.__session.query(element)
                 for obj in query:

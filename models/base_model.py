@@ -16,7 +16,7 @@ class BaseModel():
     The base model
     """
 
-    id = Column(String(60), nullable=False, primary_key=True)
+    id = Column(String(60), primary_key=True)
 
     def __init__(self):
         """
