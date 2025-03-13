@@ -23,8 +23,6 @@ API for fetching data from the Model table.
 
 app = Flask(__name__)
 
-# Replace with your database connection string
-DATABASE_URL = "sqlite:///./your_database.db"  # or your database connection string.
 
 engine = create_engine(DATABASE_URL)
 Base.metadata.create_all(engine)  # create the tables if they dont exist.
