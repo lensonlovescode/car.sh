@@ -7,8 +7,9 @@ import uuid
 from base_model import BaseModel
 from sqlalchemy import Column, String, Inteer, ForeignKey
 from sqlalchemy.orm import relationship
+from models.base_model import Base
 
-class Model(BaseModel):
+class Model(BaseModel, Base):
     """
     Models like Escalade, Suburban yk the vibes.
     """
