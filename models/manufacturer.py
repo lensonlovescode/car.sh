@@ -4,9 +4,10 @@ Contains a class definition for the manufacturer
 which inherits from FuelType
 """
 import uuid
-from base_model import BaseModel, Base
+from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
+from models.model import Model
 
 
 class Manufacturer(BaseModel, Base):
@@ -23,5 +24,4 @@ class Manufacturer(BaseModel, Base):
         """
         constructor for the Manufacturer class
         """
-        super().__init__(self)
         self.name = name

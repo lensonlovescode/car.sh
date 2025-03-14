@@ -4,10 +4,11 @@ Contains a class definition for the Model class
 which inherits from the Manufacturer
 """
 import uuid
-from base_model import BaseModel
-from sqlalchemy import Column, String, Inteer, ForeignKey
+from models.base_model import BaseModel, Base
+from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 from models.base_model import Base
+
 
 class Model(BaseModel, Base):
     """
@@ -21,22 +22,24 @@ class Model(BaseModel, Base):
     ignition = Column(String(60), nullable=False)
     engine_capacity = Column(Integer, nullable=True)
 
-    category_id = Column(String(60), ForeignKey('categories.id'))
-    category = relationship("Category", back_populates="models", cascade="all, delete-orphan")
+    category_id = Column(String(60), ForeignKey('categories.id'), nullable=False)
+    category = relationship("Category", back_populates="models")
 
-    fuel_type_id = Column(String(60), ForeignKey('fuel_types.id'))
-    fuel_type = relationship("FuelType", back_populates="models", cascade="all, delete-orphan")
-    
-    manufacturer_id = Column(String(60), ForeignKey('manufacturers.id'))
-    manufacturer = relationship("Manufacturer", back_populates="models", cascade="all, delete-orphan")
+    fuel_type_id = Column(String(60), ForeignKey('fuel_types.id'), nullable=False)
+    fuel_type = relationship("FuelType", back_populates="models")
+
+    manufacturer_id = Column(String(60), ForeignKey('manufacturers.id'), nullable=False)
+    manufacturer = relationship("Manufacturer", back_populates="models")
 
 
-    def __init__(self, model_name):
+    def __init__(self, name, base_price, fuel_type, engine_capacity):
         """
         constructor for the category class
         """
-        super().__init__(self)
-        self.name = model_name
+        self.name = name
+        self.base_price = base_price
+        self.fuel_type = fuel_type
+        self.engine_capacity = engine_capacity
 
     def calculate(self):
         """
