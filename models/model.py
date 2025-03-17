@@ -10,10 +10,6 @@ from sqlalchemy.orm import relationship
 from models.base_model import Base
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> d62703c (Admin done)
 class Model(BaseModel, Base):
     """
     Models like Escalade, Suburban yk the vibes.
