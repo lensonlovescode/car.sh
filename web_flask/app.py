@@ -7,6 +7,7 @@ from flask import Flask
 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = "verysecretpassword"
 app.register_blueprint(app_pages)
 
 if __name__ == '__main__':
