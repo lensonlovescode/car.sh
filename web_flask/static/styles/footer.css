@@ -1,0 +1,10 @@
+footer {
+    background-color: #343a40;
+    color: #000000;
+    padding: 3rem 0;
+    font-family: Poppins;
+  }
+
+  .social-icons a {
+    font-size: 1.25rem;
+  }
