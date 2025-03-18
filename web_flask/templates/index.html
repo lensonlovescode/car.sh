@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../static/styles/footer.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="../static/scripts/main.js"></script>
+    <script src="../static/scripts/filter.js"></script>
 
 </head>
 <body>
@@ -15,11 +16,11 @@
     <nav>
         <div class="navbar">
               <ul>
-            <li>Home</li>
-            <li>Discover</li>
-            <li>How to</li>
-            <li>Search</li>
-        </ul> 
+                <li><a href="{{ url_for("app_pages.main_page") }}">Home</a></li>
+                <li><a href="###">Discover</a></li>
+                <li><a href="{{ url_for("web.howto") }}">How to Import</a></li>
+                <li><a href="####">Search</a></li>
+            </ul>
         </div>
      
     </nav>
@@ -29,19 +30,16 @@
         <section class="make">
             <label for="make">Make</label>
             <select name="make" id="make">
-                <option value="Please Select Make">Please Select Make</option>
-                <option value="Volvo">Make 1</option>
-                <option value="car2">Make 2</option>
+                <option value="None">Select Make</option>
             </select>
         </section>
     </div>
     <div class="filter-column">
         <section class="model">
-            <label for="model">Model</label>
-            <select name="model" id="model">
-                <option value="Please Select Make">Please Select Model</option>
-                <option value="model1">Model 1</option>
-                <option value="model2">Model 2</option>
+            <label for="category">Category</label>
+            <select name="category" id="category">
+                <option value="Please Select Make">Select Category</option>
+
             </select>
         </section>
     </div>
@@ -182,131 +180,6 @@
     </div>
   </div>
 </footer>
-
-<script src="script.js"></script>
-<script>
-    let modelSelect = document.getElementById('car_model');
-    let yearSelect = document.getElementById('car_year');
-
-    let defaultModelOption = document.createElement('option');
-    defaultModelOption.value = '';
-    defaultModelOption.textContent = 'Select Model';
-    modelSelect.appendChild(defaultModelOption);
-
-    let defaultYearOption = document.createElement('option');
-    defaultYearOption.value = '';
-    defaultYearOption.textContent = 'Select Year';
-    yearSelect.appendChild(defaultYearOption);
-
-    document.getElementById('car_make').addEventListener('change', function() {
-        console.log('Make selection changed!');
-        let make = this.value;
-        fetch('/get_models', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: 'make=' + make,
-        })
-        .then(response => response.json())
-        .then(models => {
-            let modelSelect = document.getElementById('car_model');
-            modelSelect.innerHTML = '';
-            let defaultModelOption = document.createElement('option');
-            defaultModelOption.value = '';
-            defaultModelOption.textContent = 'Select Model';
-            modelSelect.appendChild(defaultModelOption);
-            models.forEach(model => {
-                let option = document.createElement('option');
-                option.value = model;
-                option.textContent = model;
-                modelSelect.appendChild(option);
-            });
-
-            let yearSelect = document.getElementById('car_year');
-            yearSelect.innerHTML = '';
-            let defaultYearOption = document.createElement('option');
-            defaultYearOption.value = '';
-            defaultYearOption.textContent = 'Select Year';
-            yearSelect.appendChild(defaultYearOption);
-        });
-    });
-
-    document.getElementById('car_model').addEventListener('change', function() {
-        let make = document.getElementById('car_make').value;
-        let model = this.value;
-        fetch('/get_years', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: 'make=' + make + '&model=' + model,
-        })
-        .then(response => response.json())
-        .then(years => {
-            let yearSelect = document.getElementById('car_year');
-            yearSelect.innerHTML = '';
-            let defaultYearOption = document.createElement('option');
-            defaultYearOption.value = '';
-            defaultYearOption.textContent = 'Select Year';
-            yearSelect.appendChild(defaultYearOption);
-            years.forEach(year => {
-                let option = document.createElement('option');
-                option.value = year;
-                option.textContent = year;
-                yearSelect.appendChild(option);
-            });
-        });
-    });
 </script>
-<!-- 
- {#<script>#}
-{#    document.getElementById('car_make').addEventListener('change', function() {#}
-{#        let make = this.value;#}
-{#        fetch('/get_models', {#}
-{#            method: 'POST',#}
-{#            headers: {#}
-{#                'Content-Type': 'application/x-www-form-urlencoded',#}
-{#            },#}
-{#            body: 'make=' + make,#}
-{#        })#}
-{#        .then(response => response.json())#}
-{#        .then(models => {#}
-{#            let modelSelect = document.getElementById('car_model');#}
-{#            modelSelect.innerHTML = '';#}
-{#            models.forEach(model => {#}
-{#                let option = document.createElement('option');#}
-{#                option.value = model;#}
-{#                option.textContent = model;#}
-{#                modelSelect.appendChild(option);#}
-{#            });#}
-{#        });#}
-{#    });#}
-{##}
-{#    document.getElementById('car_model').addEventListener('change', function() {#}
-{#        let make = document.getElementById('car_make').value;#}
-{#        let model = this.value;#}
-{#        fetch('/get_years', {#}
-{#            method: 'POST',#}
-{#            headers: {#}
-{#                'Content-Type': 'application/x-www-form-urlencoded',#}
-{#            },#}
-{#            body: 'make=' + make + '&model=' + model,#}
-{#        })#}
-{#        .then(response => response.json())#}
-{#        .then(years => {#}
-{#            let yearSelect = document.getElementById('car_year');#}
-{#            yearSelect.innerHTML = '';#}
-{#            years.forEach(year => {#}
-{#                let option = document.createElement('option');#}
-{#                option.value = year;#}
-{#                option.textContent = year;#}
-{#                yearSelect.appendChild(option);#}
-{#            });#}
-{#        });#}
-{#    });#}
-{##}
-{#</script>#}
- -->
 </body>
 </html>
