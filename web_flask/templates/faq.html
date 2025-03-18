@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Import Guide - Frequently Asked Questions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../static/styles/howto.css">
+    <link rel="stylesheet" href="../static/styles/faq.css">
+</head>
+<body>
+   <nav class="navbar">
+        <div class="logo">
+            <img src="../static/images/logo.png" alt="Car Import Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href=" {{ url_for('app_pages.main_page') }}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="###"><i class="fas fa-compass"></i> Discover</a></li>
+            <li><a href=" {{ url_for('app_pages.howto') }}"><i class="fas fa-info-circle"></i> How to Import</a></li>
+            <li><a href=" {{ url_for('app_pages.faq') }}" class="active"><i class="fas fa-question-circle"></i> FAQs</a></li>
+            <li>
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+   </nav>
+
+   <div class="hero faq-hero">
+       <h1>Frequently Asked Questions</h1>
+       <p>Everything you need to know about importing your vehicle</p>
+   </div>
+
+   <div class="container">
+       <div class="faq-filter">
+           <button class="filter-btn active" data-filter="all">All Questions</button>
+           <button class="filter-btn" data-filter="process">Import Process</button>
+           <button class="filter-btn" data-filter="costs">Costs & Taxes</button>
+           <button class="filter-btn" data-filter="regulations">Regulations</button>
+           <button class="filter-btn" data-filter="shipping">Shipping & Delivery</button>
+       </div>
+
+       <div class="faq-search">
+           <input type="text" id="faq-search-input" placeholder="Search FAQs...">
+           <button><i class="fas fa-search"></i></button>
+       </div>
+
+       <div class="faq-list">
+           <!-- Import Process -->
+           <div class="faq-item" data-category="process">
+               <div class="faq-question">
+                   <h3>What's the process for importing a car?</h3>
+                   <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+               </div>
+               <div class="faq-answer">
+                   <p>The process for importing a car involves several steps:</p>
+                   <ol>
+                       <li>Research and identify the vehicle you want to import</li>
+                       <li>Verify compliance with local regulations and standards</li>
+                       <li>Purchase the vehicle and obtain necessary documentation</li>
+                       <li>Arrange pre-shipment inspection</li>
+                       <li>Ship the vehicle to your destination</li>
+                       <li>Clear customs and pay applicable duties and taxes</li>
+                       <li>Register the vehicle with local authorities (NTSA)</li>
+                       <li>Obtain local insurance</li>
+                   </ol>
+                   <p>Our team can guide you through each step of this process.</p>
+               </div>
+           </div>
+           
+           <div class="faq-item" data-category="process">
+               <div class="faq-question">
+                   <h3>How long does the entire import process take?</h3>
+                   <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+               </div>
+               <div class="faq-answer">
+                   <p>The timeline varies depending on the source country, shipping method, and customs processing:</p>
+                   <ul>
+                       <li><strong>From Japan/Asia:</strong> 4-6 weeks</li>
+                       <li><strong>From Europe:</strong> 4-8 weeks</li>
+                       <li><strong>From USA/Canada:</strong> 6-10 weeks</li>
+                   </ul>
+                   <p>This includes shipping time, customs clearance, and local registration. Delays can occur due to documentation issues, inspections, or seasonal factors.</p>
+               </div>
+           </div>
+
+           <div class="faq-item" data-category="process">
+               <div class="faq-question">
+                   <h3>Can I import any car I want?</h3>
+                   <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+               </div>
+               <div class="faq-answer">
+                   <p>No, there are restrictions on what vehicles can be imported. The key requirements are:</p>
+                   <ul>
+                       <li>The vehicle must be right-hand drive</li>
+                       <li>The vehicle must be less than 8 years old from the year of first registration</li>
+                       <li>The vehicle must pass roadworthiness inspections</li>
+                       <li>The vehicle must comply with environmental standards</li>
+                   </ul>
+                   <p>Some specialty or collector vehicles may be eligible for exemptions under specific conditions.</p>
+               </div>
+           </div>
+
+           <!-- Costs & Taxes -->
+           <div class="faq-item" data-category="costs">
+               <div class="faq-question">
+                   <h3>What are the total costs involved in importing a car?</h3>
+                   <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+               </div>
+               <div class="faq-answer">
+                   <p>The total cost includes several components:</p>
+                   <table class="cost-table">
+                       <tr>
+                           <td>Purchase Price</td>
+                           <td>The actual cost of the vehicle</td>
+                       </tr>
+                       <tr>
+                           <td>Shipping Cost</td>
+                           <td>$800-$3,000 depending on origin and shipping method</td>
+                       </tr>
+                       <tr>
+                           <td>Import Duty</td>
+                           <td>25% of CIF (Cost, Insurance, Freight) value typically</td>
+                       </tr>
+                       <tr>
+                           <td>Excise Duty</td>
+                           <td>Varies by engine capacity (10%-35%)</td>
+                       </tr>
+                       <tr>
+                           <td>VAT</td>
+                           <td>16% on (CIF + Import Duty + Excise Duty)</td>
+                       </tr>
+                       <tr>
+                           <td>IDF Fee</td>
+                           <td>2.25% of CIF value</td>
+                       </tr>
+                       <tr>
+                           <td>RDL (Railway Development Levy)</td>
+                           <td>2% of CIF value</td>
+                       </tr>
+                       <tr>
+                           <td>Inspection Fees</td>
+                           <td>$200-$300</td>
+                       </tr>
+                       <tr>
+                           <td>Clearing Agent Fees</td>
+                           <td>$200-$500</td>
+                       </tr>
+                       <tr>
+                           <td>Registration Fees</td>
+                           <td>Varies by vehicle type</td>
+                       </tr>
+                   </table>
+                   <p>Use our <a href="index.html">cost calculator</a> for a more precise estimate based on your specific vehicle.</p>
+               </div>
+           </div>
+
+           <div class="faq-item" data-category="costs">
+               <div class="faq-question">
+                   <h3>Are there any tax exemptions available?</h3>
+                   <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+               </div>
+               <div class="faq-answer">
+                   <p>Yes, certain exemptions may apply in specific circumstances:</p>
+                   <ul>
+                       <li><strong>Returning residents:</strong> Kenyans returning from abroad after staying overseas for a continuous period of at least two years may be eligible for a duty exemption on one vehicle</li>
+                       <li><strong>Diplomats:</strong> Foreign diplomatic missions and their staff may qualify for duty exemptions</li>
+                       <li><strong>Electric vehicles:</strong> Enjoy reduced duty rates (10% instead of 25% for standard vehicles)</li>
+                       <li><strong>Special purpose vehicles:</strong> Some specialized vehicles like ambulances may qualify for exemptions</li>
+                   </ul>
+                   <p>Each exemption has specific requirements and documentation needs. Our team can help determine if you qualify for any exemptions.</p>
+               </div>
+           </div>
+
+           <!-- Regulations -->
+           <div class="faq-item" data-category="regulations">
+               <div class="faq-question">
+                   <h3>What is the 8-year rule and how is it calculated?</h3>
+                   <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+               </div>
+               <div class="faq-answer">
+                   <p>The 8-year rule states that vehicles imported into Kenya must be less than 8 years old from the year of first registration. Here's how it's calculated:</p>
+                   <ul>
+                       <li>The age is calculated from the year of first registration, not the manufacturing date</li>
+                       <li>For example, if you're importing in 2025, the vehicle must have been first registered in 2018 or later</li>
+                       <li>The date of clearing customs is what matters, not when you purchased the vehicle</li>
+                   </ul>
+                   <p>Vehicles exceeding this age limit will not be permitted entry, so it's crucial to verify the first registration date before purchasing.</p>
+               </div>
+           </div>
+
+           <div class="faq-item" data-category="regulations">
+               <div class="faq-question">
+                   <h3>Why must imported vehicles be right-hand drive?</h3>
+                   <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+               </div>
+               <div class="faq-answer">
+                   <p>Kenya, like many former British colonies, follows left-hand traffic rules (driving on the left side of the road). Right-hand drive vehicles are designed for left-hand traffic systems, ensuring the driver sits on the right side of the vehicle.</p>
+                   <p>This requirement exists for several reasons:</p>
+                   <ul>
+                       <li>Safety: Proper driver positioning for visibility in traffic</li>
+                       <li>Consistency: Maintaining uniform driving conditions on Kenyan roads</li>
+                       <li>Legal compliance: It's a mandatory requirement under Kenyan law</li>
+                   </ul>
+                   <p>Left-hand drive vehicles (designed for right-side driving countries like the USA) are not permitted for general import, with very limited exceptions for specialized vehicles or diplomatic use.</p>
+               </div>
+           </div>
+
+           <!-- Shipping & Delivery -->
+           <div class="faq-item" data-category="shipping">
+               <div class="faq-question">
+                   <h3>What shipping methods are available?</h3>
+                   <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+               </div>
+               <div class="faq-answer">
+                   <p>There are two primary shipping methods for importing vehicles:</p>
+                   <div class="shipping-options">
+                       <div class="shipping-option">
+                           <h4><i class="fas fa-box"></i> Container Shipping</h4>
+                           <p><strong>Features:</strong></p>
+                           <ul>
+                               <li>More secure and protected from elements</li>
+                               <li>Can accommodate multiple vehicles in one container</li>
+                               <li>Less risk of damage or theft</li>
+                               <li>More expensive than RoRo shipping</li>
+                           </ul>
+                           <p><strong>Recommended for:</strong> Luxury vehicles, classic cars, or when shipping multiple vehicles</p>
+                       </div>
+                       <div class="shipping-option">
+                           <h4><i class="fas fa-ship"></i> RoRo (Roll-on/Roll-off) Shipping</h4>
+                           <p><strong>Features:</strong></p>
+                           <ul>
+                               <li>Vehicle is driven onto and off the vessel</li>
+                               <li>More cost-effective option</li>
+                               <li>Faster loading and unloading times</li>
+                               <li>Limited to vehicles in driving condition</li>
+                           </ul>
+                           <p><strong>Recommended for:</strong> Standard vehicles in good working condition, budget-conscious imports</p>
+                       </div>
+                   </div>
+                   <p>We can advise on the best shipping method based on your specific vehicle and requirements.</p>
+               </div>
+           </div>
+
+           <div class="faq-item" data-category="shipping">
+               <div class="faq-question">
+                   <h3>What happens if my vehicle is damaged during shipping?</h3>
+                   <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+               </div>
+               <div class="faq-answer">
+                   <p>In the unlikely event that your vehicle is damaged during shipping:</p>
+                   <ol>
+                       <li><strong>Documentation:</strong> The damage should be documented immediately upon inspection at the port</li>
+                       <li><strong>Insurance claim:</strong> If you purchased shipping insurance (highly recommended), you can file a claim with the insurance provider</li>
+                       <li><strong>Shipping company liability:</strong> The shipping company may be liable for certain types of damage under their terms of service</li>
+                       <li><strong>Assessment:</strong> An independent assessor may need to evaluate the damage to determine compensation</li>
+                   </ol>
+                   <p>We strongly recommend purchasing comprehensive marine insurance for your vehicle import to protect against potential damages. Standard insurance typically covers 110% of the CIF value to account for additional expenses.</p>
+               </div>
+           </div>
+       </div>
+
+       <div class="faq-contact card">
+           <div class="section-header">
+               <i class="fas fa-envelope"></i>
+               <h2>Still Have Questions?</h2>
+           </div>
+           <div class="section-content">
+               <p>Our team is ready to help you with any additional questions about importing your vehicle.</p>
+               <form class="contact-form">
+                   <div class="form-group">
+                       <label for="name">Your Name</label>
+                       <input type="text" id="name" name="name" placeholder="Enter your name">
+                   </div>
+                   <div class="form-group">
+                       <label for="email">Email Address</label>
+                       <input type="email" id="email" name="email" placeholder="Enter your email">
+                   </div>
+                   <div class="form-group">
+                       <label for="question">Your Question</label>
+                       <textarea id="question" name="question" placeholder="Type your question here..."></textarea>
+                   </div>
+                   <button type="submit" class="btn">Submit Question</button>
+               </form>
+           </div>
+       </div>
+   </div>
+
+   <footer>
+       <div class="footer-content">
+           <div class="footer-section">
+               <h3>Contact Us</h3>
+               <p><i class="fas fa-phone"></i> +254 123 456 789</p>
+               <p><i class="fas fa-envelope"></i> info@carimport.co.ke</p>
+           </div>
+           <div class="footer-section">
+               <h3>Quick Links</h3>
+               <ul>
+                   <li><a href="{{ url_for('app_pages.main_page')}}">Home</a></li>
+                   <li><a href="###">Discover</a></li>
+                   <li><a href="{{ url_for('app_pages.howto')}}">How to Import</a></li>
+                   <li><a href="{{ url_for('app_pages.faq')}}">FAQs</a></li>
+               </ul>
+           </div>
+           <div class="footer-section">
+               <h3>Connect With Us</h3>
+               <div class="social-icons">
+                   <a href="https://youtu.be/tb48pApItXU"><i class="fab fa-facebook"></i></a>
+                   <a href="https://youtu.be/tb48pApItXU"><i class="fab fa-twitter"></i></a>
+                   <a href="https://youtu.be/tb48pApItXU"><i class="fab fa-instagram"></i></a>
+                   <a href="https://youtu.be/tb48pApItXU"><i class="fab fa-linkedin"></i></a>
+               </div>
+           </div>
+       </div>
+       <div class="footer-bottom">
+           <p>Copyright 2025 &copy; Car Importing Company. All Rights Reserved.</p>
+       </div>
+   </footer>
+
+   <script>
+       document.querySelector('.hamburger').addEventListener('click', function() {
+           document.querySelector('.nav-links').classList.toggle('active');
+       });
+
+       document.querySelectorAll('.faq-question').forEach(question => {
+           question.addEventListener('click', () => {
+               const faqItem = question.parentElement;
+               faqItem.classList.toggle('active');
+               
+               document.querySelectorAll('.faq-item.active').forEach(openItem => {
+                   if (openItem !== faqItem) {
+                       openItem.classList.remove('active');
+                   }
+               });
+           });
+       });
+
+       document.querySelectorAll('.filter-btn').forEach(button => {
+           button.addEventListener('click', () => {
+               document.querySelectorAll('.filter-btn').forEach(btn => {
+                   btn.classList.remove('active');
+               });
+               button.classList.add('active');
+               
+               const filter = button.getAttribute('data-filter');
+               document.querySelectorAll('.faq-item').forEach(item => {
+                   if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                       item.style.display = 'block';
+                   } else {
+                       item.style.display = 'none';
+                   }
+               });
+           });
+       });
+
+       document.getElementById('faq-search-input').addEventListener('input', function() {
+           const searchQuery = this.value.toLowerCase();
+           
+           document.querySelectorAll('.faq-item').forEach(item => {
+               const questionText = item.querySelector('.faq-question h3').textContent.toLowerCase();
+               const answerText = item.querySelector('.faq-answer').textContent.toLowerCase();
+               
+               if (questionText.includes(searchQuery) || answerText.includes(searchQuery)) {
+                   item.style.display = 'block';
+               } else {
+                   item.style.display = 'none';
+               }
+           });
+       });
+   </script>
+</body>
+</html>

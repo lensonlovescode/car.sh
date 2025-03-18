@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Import Guide - How to Import</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../static/styles/howto.css">
+</head>
+<body>
+   <nav class="navbar">
+        <div class="logo">
+            <img src="../static/images/logo.png" alt="Car Import Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('app_pages.main_page') }}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="###"><i class="fas fa-compass"></i> Discover</a></li>
+            <li><a href="{{ url_for('app_pages.howto') }}" class="active"><i class="fas fa-info-circle"></i> How to Import</a></li>
+            <li>
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+   </nav>
+
+   <div class="hero">
+       <h1>Car Import Guide</h1>
+       <p>Your comprehensive resource for importing vehicles</p>
+   </div>
+
+   <div class="container">
+       <section class="regulations card">
+           <div class="section-header">
+               <i class="fas fa-clipboard-list"></i>
+               <h2>Regulations</h2>
+           </div>
+           <div class="section-content">
+               <ul class="regulation-list">
+                   <li><i class="fas fa-check-circle"></i> The vehicle must be a right-hand drive</li>
+                   <li><i class="fas fa-check-circle"></i> The vehicle must  be less than 8 years old from the year of first registration</li>
+                   <li><i class="fas fa-check-circle"></i> The vehicle will be subject to roadworthiness inspection by a KEBS appointed inspection officer in the country of export.</li>
+               </ul>
+           </div>
+       </section>
+
+       <section class="taxes card">
+           <div class="section-header">
+               <i class="fas fa-percentage"></i>
+               <h2>Taxes Applicable</h2>
+           </div>
+           <div class="section-content">
+               <h3>Motor vehicles designed for the transport of persons</h3>
+               <div class="tax-table">
+                   <div class="tax-item highlight">
+                       <div class="tax-rate">25%</div>
+                       <div class="tax-description">Import Duty</div>
+                   </div>
+                   <div class="tax-item">
+                       <div class="tax-rate">0%</div>
+                       <div class="tax-description">Ambulances and Hearses</div>
+                   </div>
+                   <div class="tax-item highlight">
+                       <div class="tax-rate">16%</div>
+                       <div class="tax-description">Value Added Tax</div>
+                   </div>
+                   <div class="tax-item">
+                       <div class="tax-rate">3.5%</div>
+                       <div class="tax-description">Import Declaration Fee</div>
+                   </div>
+                   <div class="tax-item">
+                       <div class="tax-rate">2%</div>
+                       <div class="tax-description">Railway Development Levy</div>
+                   </div>
+                   <div class="tax-item">
+                       <div class="tax-rate">20%</div>
+                       <div class="tax-description">For assembled, spark-ignition, internal combustion of a vehicle whose cylinder capacity exceeds 1,000cc but not exceeding 1,500cc</div>
+                   </div>
+                   <div class="tax-item">
+                       <div class="tax-rate">25%</div>
+                       <div class="tax-description">For assembled, spark-ignition, internal combustion of a vehicle whose cylinder capacity exceeds 1,500cc but not exceeding 3,000cc</div>
+                   </div>
+                   <div class="tax-item">
+                       <div class="tax-rate">35%</div>
+                       <div class="tax-description">For assembled, spark-ignition, internal combustion of a vehicle whose cylinder capacity exceeds 3,000cc</div>
+                   </div>
+                   <div class="tax-item">
+                       <div class="tax-rate">25%</div>
+                       <div class="tax-description">For assembled, compression-ignition, internal combustion of a vehicle whose cylinder capacity not exceeding 1,500cc (diesel/semi-diesel)</div>
+                   </div>
+                   <div class="tax-item">
+                       <div class="tax-rate">25%</div>
+                       <div class="tax-description">For assembled, compression-ignition, internal combustion of a vehicle whose cylinder capacity exceeds 1,500cc but not exceeding 2,500cc (diesel/semi-diesel)</div>
+                   </div>
+                   <div class="tax-item">
+                       <div class="tax-rate">35%</div>
+                       <div class="tax-description">For assembled, compression-ignition, internal combustion of a vehicle whose cylinder capacity exceeds 2,500cc (diesel/semi-diesel)</div>
+                   </div>
+                   <div class="tax-item">
+                       <div class="tax-rate">25%</div>
+                       <div class="tax-description">For vehicles with both spark-ignition internal combustion and electric motor as motors for propulsion, other than those capable of being charged by plugging to external source of electric power</div>
+                   </div>
+                   <div class="tax-item">
+                       <div class="tax-rate">25%</div>
+                       <div class="tax-description">For vehicles with both compression-ignition internal combustion and electric motor as motors for propulsion, other than those capable of being charged by plugging to external source of electric power (diesel/semi-diesel)</div>
+                   </div>
+                   <div class="tax-item">
+                       <div class="tax-rate">25%</div>
+                       <div class="tax-description">For vehicles with both spark-ignition internal combustion and electric motors for propulsion capable of being charged by plugging to external sources of electric power</div>
+                   </div>
+                   <div class="tax-item">
+                       <div class="tax-rate">25%</div>
+                       <div class="tax-description">For vehicles with both compression-ignition internal combustion and electric motors for propulsion capable of being charged by plugging to external sources of electric power (diesel/semi-diesel)</div>
+                   </div>
+                   <div class="tax-item highlight">
+                       <div class="tax-rate">10%</div>
+                       <div class="tax-description">For vehicle, with only electric motors for propulsion</div>
+                   </div>
+               </div>
+           </div>
+       </section>
+
+       <section class="documents card">
+           <div class="section-header">
+               <i class="fas fa-file-alt"></i>
+               <h2>Importation Supporting Documents</h2>
+           </div>
+           <div class="section-content">
+               <ul class="document-list">
+                   <li><i class="fas fa-file-invoice"></i> Original Commercial Invoice</li>
+                   <li><i class="fas fa-book"></i> Original Logbook from Country of importation, that has been cancelled from the Country of origin, required by NTSA to provide you an Original Log Book</li>
+                   <li><i class="fas fa-certificate"></i> Pre-Shipment inspection certificate (certificate of road worthiness)</li>
+                   <li><i class="fas fa-id-card"></i> Copy of PIN certificate or certificate of Incorporation</li>
+               </ul>
+           </div>
+       </section>
+
+       <section class="calculator-promo card">
+           <div class="section-content">
+               <i class="fas fa-calculator promo-icon"></i>
+               <p>Would you like to estimate the price of importing your dream car?</p>
+               <a href="{{ url_for('app_pages.main_page') }}" class="btn">Calculate Now</a>
+           </div>
+       </section>
+
+       <section class="glossary card">
+           <div class="section-header">
+               <i class="fas fa-book"></i>
+               <h2>Glossary of Terms</h2>
+           </div>
+           <div class="section-content terms">
+               <div class="term">
+                   <h4>Spark-Ignition</h4>
+                   <p>An internal combustion engine where the fuel-air mixture is ignited by a spark plug. Commonly found in petrol/gasoline engines.</p>
+               </div>
+               <div class="term">
+                   <h4>Compression-Ignition</h4>
+                   <p>An internal combustion engine where the heat of compression ignites the fuel-air mixture. Commonly found in diesel engines.</p>
+               </div>
+               <div class="term">
+                   <h4>cc (Cubic Centimeters)</h4>
+                   <p>A unit of measurement for engine capacity that indicates the size of an engine.</p>
+               </div>
+               <div class="term">
+                   <h4>NTSA</h4>
+                   <p>National Transport and Safety Authority - The regulatory authority for road transport and safety.</p>
+               </div>
+               <div class="term">
+                   <h4>KEBS</h4>
+                   <p>Kenya Bureau of Standards - The national standards body responsible for quality assurance of products including imported vehicles.</p>
+               </div>
+           </div>
+       </section>
+   </div>
+
+   <footer>
+       <div class="footer-content">
+           <div class="footer-section">
+               <h3>Contact Us</h3>
+               <p><i class="fas fa-phone"></i> +254 123 456 789</p>
+               <p><i class="fas fa-envelope"></i> info@carimport.co.ke</p>
+           </div>
+           <div class="footer-section">
+               <h3>Quick Links</h3>
+               <ul>
+                   <li><a href=" {{ url_for('app_pages.main_page') }}">Home</a></li>
+                   <li><a href="###">Discover</a></li>
+                   <li><a href=" {{ url_for('app_pages.howto') }}">How to Import</a></li>
+                   <li><a href=" {{ url_for('app_pages.faq') }}">FAQs</a></li>
+               </ul>
+           </div>
+           <div class="footer-section">
+               <h3>Connect With Us</h3>
+               <div class="social-icons">
+                   <a href="https://youtu.be/tb48pApItXU"><i class="fab fa-facebook"></i></a>
+                   <a href="https://youtu.be/tb48pApItXU"><i class="fab fa-twitter"></i></a>
+                   <a href="https://youtu.be/tb48pApItXU"><i class="fab fa-instagram"></i></a>
+                   <a href="https://youtu.be/tb48pApItXU"><i class="fab fa-linkedin"></i></a>
+               </div>
+           </div>
+       </div>
+       <div class="footer-bottom">
+           <p>Copyright 2025 &copy; Car Importing Company. All Rights Reserved.</p>
+       </div>
+   </footer>
+
+   <script>
+       document.querySelector('.hamburger').addEventListener('click', function() {
+           document.querySelector('.nav-links').classList.toggle('active');
+       });
+   </script>
+</body>
+</html>

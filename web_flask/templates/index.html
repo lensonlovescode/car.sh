@@ -15,11 +15,11 @@
     <nav>
         <div class="navbar">
               <ul>
-            <li>Home</li>
-            <li>Discover</li>
-            <li>How to</li>
-            <li>Search</li>
-        </ul> 
+                <li><a href="{{ url_for("app_pages.main_page") }}">Home</a></li>
+                <li><a href="###">Discover</a></li>
+                <li><a href="{{ url_for("app_pages.howto") }}">How to Import</a></li>
+                <li><a href="####">Search</a></li>
+            </ul>
         </div>
      
     </nav>
@@ -199,52 +199,5 @@
         });
     });
 </script>
-{#<script>#}
-{#    document.getElementById('car_make').addEventListener('change', function() {#}
-{#        let make = this.value;#}
-{#        fetch('/get_models', {#}
-{#            method: 'POST',#}
-{#            headers: {#}
-{#                'Content-Type': 'application/x-www-form-urlencoded',#}
-{#            },#}
-{#            body: 'make=' + make,#}
-{#        })#}
-{#        .then(response => response.json())#}
-{#        .then(models => {#}
-{#            let modelSelect = document.getElementById('car_model');#}
-{#            modelSelect.innerHTML = '';#}
-{#            models.forEach(model => {#}
-{#                let option = document.createElement('option');#}
-{#                option.value = model;#}
-{#                option.textContent = model;#}
-{#                modelSelect.appendChild(option);#}
-{#            });#}
-{#        });#}
-{#    });#}
-{##}
-{#    document.getElementById('car_model').addEventListener('change', function() {#}
-{#        let make = document.getElementById('car_make').value;#}
-{#        let model = this.value;#}
-{#        fetch('/get_years', {#}
-{#            method: 'POST',#}
-{#            headers: {#}
-{#                'Content-Type': 'application/x-www-form-urlencoded',#}
-{#            },#}
-{#            body: 'make=' + make + '&model=' + model,#}
-{#        })#}
-{#        .then(response => response.json())#}
-{#        .then(years => {#}
-{#            let yearSelect = document.getElementById('car_year');#}
-{#            yearSelect.innerHTML = '';#}
-{#            years.forEach(year => {#}
-{#                let option = document.createElement('option');#}
-{#                option.value = year;#}
-{#                option.textContent = year;#}
-{#                yearSelect.appendChild(option);#}
-{#            });#}
-{#        });#}
-{#    });#}
-{##}
-{#</script>#}
 </body>
 </html>
