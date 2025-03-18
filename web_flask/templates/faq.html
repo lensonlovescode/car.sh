@@ -19,8 +19,8 @@
         <ul class="nav-links">
             <li><a href=" {{ url_for('app_pages.main_page') }}"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="###"><i class="fas fa-compass"></i> Discover</a></li>
-            <li><a href=" {{ url_for('app_pages.howto') }}"><i class="fas fa-info-circle"></i> How to Import</a></li>
-            <li><a href=" {{ url_for('app_pages.faq') }}" class="active"><i class="fas fa-question-circle"></i> FAQs</a></li>
+            <li><a href=" {{ url_for('web.howto') }}"><i class="fas fa-info-circle"></i> How to Import</a></li>
+            <li><a href=" {{ url_for('web.faq') }}" class="active"><i class="fas fa-question-circle"></i> FAQs</a></li>
             <li>
                 <div class="search-box">
                     <input type="text" placeholder="Search...">
@@ -307,8 +307,8 @@
                <ul>
                    <li><a href="{{ url_for('app_pages.main_page')}}">Home</a></li>
                    <li><a href="###">Discover</a></li>
-                   <li><a href="{{ url_for('app_pages.howto')}}">How to Import</a></li>
-                   <li><a href="{{ url_for('app_pages.faq')}}">FAQs</a></li>
+                   <li><a href="{{ url_for('web.howto')}}">How to Import</a></li>
+                   <li><a href="{{ url_for('web.faq')}}">FAQs</a></li>
                </ul>
            </div>
            <div class="footer-section">
