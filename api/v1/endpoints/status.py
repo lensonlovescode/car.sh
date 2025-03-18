@@ -2,7 +2,7 @@
 """
 Creates the status endpoint
 """
-from api.v1.endpoints import api_endpoints
+from api.v1 import api_endpoints
 from flask import jsonify
 
 @api_endpoints.route('/status', strict_slashes=False)

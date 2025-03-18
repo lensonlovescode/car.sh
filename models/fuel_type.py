@@ -4,9 +4,10 @@ Contains a class definition for the fuel type
 which inherits from the BaseModel class
 """
 import uuid
-from base_model import BaseModel, Base
+from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
+from models.model import Model
 
 
 class FuelType(BaseModel, Base):
@@ -25,5 +26,4 @@ class FuelType(BaseModel, Base):
         """
         constructor for the FuelType class
         """
-        super().__init__.py(self)
         self.name = name

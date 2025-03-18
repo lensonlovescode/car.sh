@@ -4,10 +4,10 @@ Contains a class definition for the categories
 which inherit from the base model
 """
 import uuid
-from base_model import BaseModel, Base
+from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
-
+from models.model import Model
 
 
 class Category(BaseModel, Base):
@@ -25,5 +25,4 @@ class Category(BaseModel, Base):
         """
         constructor for the category class
         """
-        super().__init__(self)
         self.name = name

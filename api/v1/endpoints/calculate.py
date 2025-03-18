@@ -2,7 +2,7 @@
 """
 The API endpoint for calculating the price
 """
-from api.v1.endpoints import api_endpoints
+from api.v1 import api_endpoints
 from models import storage
 from models.category import Category
 from models.fuel_type import FuelType
