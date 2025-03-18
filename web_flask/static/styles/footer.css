@@ -1,10 +1,51 @@
 footer {
     background-color: #343a40;
-    color: #000000;
-    padding: 3rem 0;
+    color: #ffffff;
+    padding: 10px;
     font-family: Poppins;
   }
-
+.row{
+  margin: 2px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
   .social-icons a {
-    font-size: 1.25rem;
+    font-size: medium;
+    color: rgba(77, 190, 255, 0.829);
+  }
+  .social-icons :active{
+    opacity: 75%;
+  }
+  
+  .footer-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .about-us, .quick-links, .follow-us{
+    width: 30%; 
+    padding: 10px;
+    margin: 5px;
+    margin-top: 0;
+  }
+  h5{
+    font-size: medium;
+    margin-bottom: 3px;
+    color: #00d4ff;
+  }
+  .footer-rights{
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    margin: 0;
+    padding: 0;
+  }
+  .list-unstyled{
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .text-decoration-none{
+    color: #ffffff;
+    font-weight: medium;
   }
