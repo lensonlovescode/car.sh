@@ -1,18 +1,18 @@
 #!/usr/bin/python3
 """
-API endpoint for fetching makes
+API endpoint for fetching categories
 """
 from api.v1 import api_endpoints
 from models import storage
-from models.manufacturer import Manufacturer
+from models.category import Category
 from flask import jsonify
 
-@api_endpoints.route('/makes', strict_slashes=False)
-def get_models_route():
+@api_endpoints.route('/categories', strict_slashes=False)
+def get_categories():
     """
     Method for fetching models
     """
-    my_dict = storage.all(Manufacturer)
+    my_dict = storage.all(Category)
     my_list = []
 
     for k, v in my_dict.items():
