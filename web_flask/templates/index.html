@@ -3,123 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>carsh</title>
-    <link rel="stylesheet" href="../static/styles/main.css">
-    <link rel="stylesheet" href="../static/styles/footer.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="../static/scripts/main.js"></script>
-    <script src="../static/scripts/filter.js"></script>
-
+    <title>Carsh - Find Your Perfect Car</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../static/styles/styles.css">
 </head>
 <body>
-   <header>
-    <nav>
-        <div class="navbar">
-              <ul>
-                <li><a href="{{ url_for("app_pages.main_page") }}">Home</a></li>
-                <li><a href="###">Discover</a></li>
-                <li><a href="{{ url_for("web.howto") }}">How to Import</a></li>
-                <li><a href="####">Search</a></li>
-            </ul>
+   <nav class="navbar">
+        <div class="logo">
+            <img src="../static/images/logo.png" alt="Carsh Logo">
         </div>
-     
-    </nav>
-   </header>
-   <div class="container">
-    <div class="filter-column">
-        <section class="make">
-            <label for="make">Make</label>
-            <select name="make" id="make">
-                <option value="None">Select Make</option>
-            </select>
-        </section>
-    </div>
-    <div class="filter-column">
-        <section class="model">
-            <label for="category">Category</label>
-            <select name="category" id="category">
-                <option value="Please Select Make">Select Category</option>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('app_pages.main_page') }}" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="####"><i class="fas fa-compass"></i> Discover</a></li>
+            <li><a href="{{url_for('web.howto')}}"><i class="fas fa-info-circle"></i> How to Import</a></li>
+            <li>
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+   </nav>
 
-            </select>
-        </section>
-    </div>
-    <div class="filter-column">
-        <section class="year">
-            <label for="year">Year</label>
-            <select name="year" id="year">
-                <option value="Please Select Year">Year</option>
-                <option value="year1">Year 1</option>
-                <option value="year">Year 2</option>
-            </select>
-        </section>
-    </div>
-    <div class="Search" >
-        <button id="search_button">Search</button>
-    </div>  
+   <div class="hero">
+       <h1>Find Your Dream Car</h1>
+       <p>Browse thousands of cars and calculate your costs easily</p>
    </div>
 
    <div class="container">
-    <div class="left-section">
-        <div class="car-title card">
-            <h2> <strong>Ford Explorer</strong> &middot; 2019</h2>
-        </div>
-        <img src="../static/images/thumbnail1.jpg" alt="Car Side" class="thumbnail">
-        <img src="../static/images/thumbnail2.jpg" alt="Car Top" class="thumbnail">
-        <img src="../static/images/thumbnail3.webp" alt="Car Rear" class="thumbnail selected">
-    </div>
+       <section class="search-tools card">
+           <div class="section-header">
+               <i class="fas fa-search"></i>
+               <h2>Find the Perfect Match</h2>
+           </div>
+           <div class="section-content">
+               <div class="filters">
+                   <div class="filter-column">
+                       <label for="make">Make</label>
+                       <select name="make" id="make">
+                           <option value="None">Select Make</option>
+                           <option value="ford">Ford</option>
+                           <option value="toyota">Toyota</option>
+                           <option value="tesla">Tesla</option>
+                           <option value="bmw">BMW</option>
+                       </select>
+                   </div>
+                   <div class="filter-column">
+                       <label for="category">Category</label>
+                       <select name="category" id="category">
+                           <option value="None">Select Category</option>
+                           <option value="suv">SUV</option>
+                           <option value="sedan">Sedan</option>
+                           <option value="electric">Electric</option>
+                       </select>
+                   </div>
+                   <div class="filter-column">
+                       <label for="year">Year</label>
+                       <select name="year" id="year">
+                           <option value="None">Select Year</option>
+                           <option value="2025">2025</option>
+                           <option value="2024">2024</option>
+                           <option value="2023">2023</option>
+                           <option value="2022">2022</option>
+                           <option value="2021">2021</option>
+                       </select>
+                   </div>
+                   <button id="search_button" class="btn">Calculate</button>
+               </div>
+           </div>
+       </section>
 
-    <div class="center-section">
-        <img id="main-car-image" src="../static/images/thumbnail1.jpg" alt="Main Car Image">
-    </div>
+       <section class="featured-car card">
+           <div class="section-header">
+               <i class="fas fa-star"></i>
+               <h2>Featured Vehicle</h2>
+           </div>
+           <div class="section-content">
+               <div class="car-detail">
+                   <div class="left-section">
+                       <div class="car-title">
+                           <h3>Mercedes Benz &middot; 2019</h3>
+                       </div>
+                   </div>
 
-    <div class="right-section">
-        <p><strong>Power:</strong> 210KW (282 HP)</p>
-        <p><strong>Battery:</strong> 77KWH</p>
-        <p><strong>Drive Type:</strong> AWD</p>
-        <p><strong>Range:</strong> 320 miles</p>
-        <p><strong>Charging Time:</strong> 30 mins (Fast Charge)</p>
-        <button class="button">Calculate Taxes</button>
-    </div>
-</div>
+                   <div class="center-section">
+                       <img id="main-car-image" src="../static/images/merc_2.jpg" alt="Main Car Image">
+                   </div>
 
-<div class="catalogue-wrapper">
-    <div class="catalogue-container" id="carCatalogue">
-    </div>
-</div>
+                   <div class="right-section">
+                       <div class="specs">
+                           <p><i class="fas fa-bolt"></i> <strong>Power:</strong> 210KW (282 HP)</p>
+                           <p><i class="fas fa-battery-full"></i> <strong>Battery:</strong> 77KWH</p>
+                           <p><i class="fas fa-cogs"></i> <strong>Drive Type:</strong> AWD</p>
+                           <p><i class="fas fa-road"></i> <strong>Range:</strong> 320 miles</p>
+                           <p><i class="fas fa-charging-station"></i> <strong>Charging Time:</strong> 30 mins (Fast Charge)</p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<footer class="mt-auto">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-3">
-        <h5>About Us</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ante mollis quam tristique convallis.</p>
-      </div>
-      <div class="col-md-4 mb-3">
-        <h5>Quick Links</h5>
-        <ul class="list-unstyled">
-          <li><a href="#" class="text-decoration-none text-white">Home</a></li>
-          <li><a href="#" class="text-decoration-none text-white">Services</a></li>
-          <li><a href="#" class="text-decoration-none text-white">Contact</a></li>
-        </ul>
-      </div>
-      <div class="col-md-4 mb-3">
-        <h5>Follow Us</h5>
-        <ul class="list-inline social-icons">
-          <li class="list-inline-item"><a href="https://facebook.com/carsh" class="text-white"><i class="bi bi-facebook"></i></a></li>
-          <li class="list-inline-item"><a href="https://twitter.com/@carsh" class="text-white"><i class="bi bi-twitter"></i></a></li>
-          <li class="list-inline-item"><a href="https://instagram.com/@carsh" class="text-white"><i class="bi bi-instagram"></i></a></li>
-        </ul>
-      </div>
-    </div>
-    <hr class="mb-4">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p>&copy; 2025 Carsh. All rights reserved.</p>
-      </div>
-    </div>
-  </div>
-</footer>
-</script>
+       <section class="popular-cars card">
+           <div class="section-header">
+               <i class="fas fa-car"></i>
+               <h2>Browse Popular Cars</h2>
+           </div>
+           <div class="section-content">
+               <div class="catalogue-container" id="carCatalogue">
+                   <div class="car-card">
+                       <div class="car-image">
+                           <img src="../static/images/tesla_model3.jpg" alt="Tesla Model 3">
+                       </div>
+                       <div class="car-info">
+                           <h3>Tesla Model 3</h3>
+                           <p class="car-specs">Electric • 272 miles • AWD</p>
+                       </div>
+                   </div>
+                   
+                   <div class="car-card">
+                       <div class="car-image">
+                           <img src="../static/images/toyota_rav4.jpg" alt="Toyota RAV4">
+                       </div>
+                       <div class="car-info">
+                           <h3>Toyota RAV4</h3>
+                           <p class="car-specs">Hybrid • 41 MPG • AWD</p>
+                       </div>
+                   </div>
+
+                   <div class="car-card">
+                       <div class="car-image">
+                           <img src="../static/images/bmw_i4.jpg" alt="BMW i4">
+                       </div>
+                       <div class="car-info">
+                           <h3>BMW i4</h3>
+                           <p class="car-specs">Electric • 301 miles • RWD</p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+
+       <section class="calculator-promo card">
+           <div class="section-content">
+               <i class="fas fa-car-side promo-icon"></i>
+               <h2>Ready to Find Your Perfect Car?</h2>
+               <p>Join thousands of satisfied customers who found their dream cars with Carsh</p>
+           </div>
+       </section>
+   </div>
+
+   <footer>
+       <div class="footer-content">
+           <div class="footer-section">
+               <h3>About Us</h3>
+               <p>Carsh helps you find, finance, and purchase your dream car with ease. We provide transparent pricing and reliable information.</p>
+           </div>
+           <div class="footer-section">
+               <h3>Quick Links</h3>
+               <ul>
+                   <li><a href="{{ url_for('app_pages.main_page') }}">Home</a></li>
+                   <li><a href="{{ url_for('web.howto') }}">How to</a></li>
+                   <li><a href="{{ url_for('web.faq') }}">FAQs</a></li>
+               </ul>
+           </div>
+           <div class="footer-section">
+               <h3>Contact Us</h3>
+               <p><i class="fas fa-envelope"></i> info@car_sh.com</p>
+               <p><i class="fas fa-phone"></i> +254 7 12 345 678</p>
+               <p><i class="fas fa-map-marker-alt"></i> 123 Nairobi, Kenya</p>
+           </div>
+           <div class="footer-section">
+               <h3>Connect With Us</h3>
+               <div class="social-icons">
+                   <a href="https://facebook.com/carsh"><i class="fab fa-facebook"></i></a>
+                   <a href="https://twitter.com/@carsh"><i class="fab fa-twitter"></i></a>
+                   <a href="https://instagram.com/@carsh"><i class="fab fa-instagram"></i></a>
+                   <a href="https://linkedin.com/company/carsh"><i class="fab fa-linkedin"></i></a>
+               </div>
+           </div>
+       </div>
+       <div class="footer-bottom">
+           <p>Copyright 2025 &copy; Car_sh. All Rights Reserved.</p>
+       </div>
+   </footer>
+
+   <script>
+       document.querySelector('.hamburger').addEventListener('click', function() {
+           document.querySelector('.nav-links').classList.toggle('active');
+       });
+       
+       document.querySelectorAll('.thumbnail').forEach(thumbnail => {
+           thumbnail.addEventListener('click', function() {
+               document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+               this.classList.add('active');
+           });
+       });
+   </script>
 </body>
 </html>
