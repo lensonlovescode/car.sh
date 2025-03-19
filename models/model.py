@@ -32,14 +32,17 @@ class Model(BaseModel, Base):
     manufacturer = relationship("Manufacturer", back_populates="models")
 
 
-    def __init__(self, name, base_price, fuel_type, engine_capacity):
+    def __init__(self, name, base_price, engine_capacity, ignition, category_id, fuel_type_id, manufacturer_id):
         """
         constructor for the category class
         """
         self.name = name
         self.base_price = base_price
-        self.fuel_type = fuel_type
+        self.fuel_type_id = fuel_type_id
         self.engine_capacity = engine_capacity
+        self.ignition = ignition
+        self.category_id = category_id
+        self.manufacturer_id = manufacturer_id
 
     def calculate(self):
         """

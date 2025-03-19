@@ -66,10 +66,12 @@ class Carsh(cmd.Cmd):
                     continue
                 base_price = int(base_price)
 
-                fuel_type = input("Enter Fuel Type (diesel/petrol/electric/hybrid): ").strip().lower()
-                valid_fuel_types = {"diesel", "petrol", "electric", "hybrid"}
+                ignition = input("Enter Ignition type: ").strip()
+
+                fuel_type = input("Enter Fuel Type (Diesel/Petrol/Electric/Hybrid): ").strip()
+                valid_fuel_types = {"Diesel", "Petrol", "Electric", "Hybrid"}
                 if fuel_type not in valid_fuel_types:
-                    print("Invalid fuel type. Choose from: diesel, petrol, electric, hybrid.")
+                    print("Invalid fuel type. Choose from: Diesel, Petrol, Electric, Hybrid")
                     continue
 
                 engine_capacity = input("Enter Engine Capacity (cc): ").strip()
@@ -78,7 +80,15 @@ class Carsh(cmd.Cmd):
                     continue
                 engine_capacity = int(engine_capacity)
 
-                obj = Model(name=name, base_price=base_price, fuel_type=fuel_type, engine_capacity=engine_capacity)
+                category_id = input("Enter Category id: ").strip()
+
+                m_id = input("Enter manufacturer id: ").strip()
+
+                fuel_id = input("Enter Fuel id: ").strip()
+
+
+                obj = Model(name=name, base_price=base_price, engine_capacity=engine_capacity,
+                            ignition=ignition, category_id=category_id, fuel_type_id=fuel_id, manufacturer_id=m_id)
 
             obj.save()
             print(f"{item_type.capitalize()} '{obj.name}' created successfully!")
