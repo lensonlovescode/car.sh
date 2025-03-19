@@ -6,6 +6,8 @@
     <title>carsh</title>
     <link rel="stylesheet" href="../static/styles/main.css">
     <link rel="stylesheet" href="../static/styles/footer.css">
+    <link rel="stylesheet" href="../static/styles/overlay.css">
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="../static/scripts/main.js"></script>
     <script src="../static/scripts/filter.js"></script>
@@ -30,7 +32,7 @@
         <section class="make">
             <label for="make">Make</label>
             <select name="make" id="make">
-                <option value="None">Select Make</option>
+                <option value="None">Make</option>
             </select>
         </section>
     </div>
@@ -38,18 +40,16 @@
         <section class="model">
             <label for="category">Category</label>
             <select name="category" id="category">
-                <option value="Please Select Make">Select Category</option>
+                <option value="None">Category</option>
 
             </select>
         </section>
     </div>
     <div class="filter-column">
         <section class="year">
-            <label for="year">Year</label>
-            <select name="year" id="year">
-                <option value="Please Select Year">Year</option>
-                <option value="year1">Year 1</option>
-                <option value="year">Year 2</option>
+            <label for="year">Model</label>
+            <select name="model" id="model">
+                <option value="None">Model</option>
             </select>
         </section>
     </div>
@@ -59,6 +59,27 @@
    </div>
 
    <div class="global-catalogue-container">
+    <div id="overlay">
+        <div class="overlay-content">
+            <button id="close-overlay">✖</button>
+            <img class="car-img" src="../static/images/default-car.jpg" alt="Car Image">
+            <h2 class="car-title">Car Model Year - Make</h2>
+            <h3 class="car-description">Model Name - Trim</h3>
+            
+            <ul class="car-specs">
+                <li><strong>Mileage:</strong> <span id="mileage">N/A</span> miles</li>
+                <li><strong>Engine:</strong> <span id="engine">N/A</span> L</li>
+                <li><strong>Transmission:</strong> <span id="transmission">N/A</span></li>
+                <li><strong>Fuel Type:</strong> <span id="fuel-type">N/A</span></li>
+            </ul>
+    
+            <div class="car-price">
+                <h3>Price: <span id="price">Ksh. 0</span></h3>
+            </div>
+    
+            <button id="calculate-cost">Calculate Shipping</button>
+        </div>
+    </div>
 <div class="catalogue-container">
     <div class="car-card">
         <img class="car-img" src="../static/images/mercedes.jpg" width="50%">
@@ -80,9 +101,7 @@
         <div class="car-card-cost">
             <h3 class="car-card-cash">Cash</h3>
             <h3 class="car-card-total">Ksh. 3,448</h3>
-            <button class="view-deal-button">
-                View deal
-            </button>
+            <button class="view-deal-button" id="open-overlay">View deal</button>
         </div>
     </div>
 </div>
