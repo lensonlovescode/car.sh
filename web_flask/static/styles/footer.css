@@ -49,3 +49,10 @@ footer {
     color: #ffffff;
     font-weight: medium;
   }
+.list-inline-item{
+  display: grid;
+    grid-auto-flow: column; 
+    list-style-type: style type dot;
+    margin:0px;
+    padding-left: 0px; 
+}
