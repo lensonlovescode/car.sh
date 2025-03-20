@@ -42,53 +42,6 @@ $("#make, #category").change(function () {
     }
 });
 
-
-$('#search_button').on('click', function () {
-
-    const Make = $('#make').val();
-    const Category = $('#category').val();
-    const Model = $('#model').val();
-
-    if ($('#make').val() !== "None" || $('#category').val() !== "None")
-    {
-        let url = `http://localhost:5001/api/v1/makes/${Make}/${Category}`;
-        $('.global-catalogue-container').empty(); 
-        $.get(url, function (data) {
-            $.each(data, function (index, model) {
-
-            // starts here
-
-            let carCard = `
-                    <div class="car-card">
-                        <img class="car-img" src="../static/images/default.jpg">
-                        <div class="car-card-contents">
-                            <h4 class="car-card-title">${model.year} ${model.manufacturer}</h4>
-                            <h3 class="car-description">${model.name}</h3>
-                            <h6 class="car-card-info">
-                                <ul class="car-specs">
-                                    <li class="engine-capacity">${model.engine_capacity} litres</li>
-                                    <li class="transmission">${model.ignition}</li>
-                                    <li class="fuel-type">${model.fuel_type}</li>
-                                </ul>
-                            </h6>
-                        </div>
-                        <div class="car-card-cost">
-                            <h3 class="car-card-cash">Base Price</h3>
-                            <h3 class="car-card-total">Ksh. ${model.base_price}</h3>
-                            <button class="view-deal-button">View deal</button>
-                        </div>
-                    </div>
-                `;
-
-                $('.global-catalogue-container').append(carCard);
-
-            // ends here
-
-            });
-        });
-    }
-});
-
 $("#open-overlay").on("click", function () {
     $("#overlay").fadeIn();
 });
@@ -102,6 +55,58 @@ $("#overlay").on("click", function (e) {
         $(this).fadeOut();
     }
 });
+
+$('#search_button').on('click', function () {
+
+    const Make = $('#make').val();
+    const Category = $('#category').val();
+    const Model = $('#model').val();
+
+    if ($('#make').val() !== "None" || $('#category').val() !== "None")
+    {
+        let url = `http://localhost:5001/api/v1/makes/${Make}/${Category}`;
+        $('.catalogue-grid').empty(); 
+        $.get(url, function (data) {
+            $.each(data, function (index, model) {
+
+            // starts here
+
+            let carCard = `
+                    <div class="car-card">
+                        <div class="car-image">
+                            <img class="car-img" src="../static/images/mercedes.jpg">
+                        </div>
+
+                        <div class="car-card-contents">
+                            <h4 class="car-card-title">${model.year} ${model.manufacturer}</h4>
+                            <h3 class="car-description">${model.name}</h3>
+                            <h6 class="car-card-info">
+                                <ul class="car-specs">
+
+                                    <li class="mileage"><i class="fas fa-tachometer-alt"></i> ${model.mileage} miles</li>
+                                    <li class="engine-capacity"><i class="fas fa-cogs"></i>${model.engine_capacity} cc</li>
+                                    <li class="transmission"><i class="fas fa-exchange-alt"></i>${model.ignition} ignition</li>
+                                    <li class="fuel-type"><i class="fas fa-gas-pump"></i>${model.fuel_type}</li>
+                                </ul>
+                            </h6>
+                        </div>
+                        <div class="car-card-cost">
+                            <h3 class="car-card-cash">Base Price</h3>
+                            <h3 class="car-card-total">$. ${model.base_price}</h3>
+                            <button class="view-deal-button" id="open-overlay"><i class="fas fa-eye"></i>View deal</button>
+                        </div>
+                    </div>
+                `;
+
+                $('.catalogue-grid').append(carCard);
+
+            // ends here
+
+            });
+        });
+    }
+});
+
 
 });
 
