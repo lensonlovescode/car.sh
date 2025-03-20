@@ -19,6 +19,7 @@ class Storage():
        The constructor method
        """
        self.__engine = create_engine("mysql+pymysql://carsh_dev:carsh%401hDbTVi4@localhost/carsh", pool_pre_ping=True)
+       # self.__engine = create_engine("sqlite://")
 
        if getenv('env', default='production') == "test":
            Base.metadata.drop_all(self.__engine)

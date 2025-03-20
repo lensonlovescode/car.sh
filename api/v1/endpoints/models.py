@@ -52,3 +52,12 @@ def get_all_models():
         my_list.append(v.to_dict())
 
     return(jsonify(my_list))
+
+# @api_endpoints.route('/models/<model_id>', strict_slashes=False)
+# def get_single_model_car(model_id):
+#     my_list = []
+
+#     models = storage.all(Model)
+#     for k, v in models.items():
+#         my_list.append(v.to_dict())
+    

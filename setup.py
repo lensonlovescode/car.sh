@@ -146,7 +146,7 @@ def create_and_save_models():
             engine_capacity=engine_capacity,
             category_id=category_id,
             fuel_type_id=fuel_type_id,
-            manufacturer_id=manufacturer_id
+            manufacturer_id=manufacturer_id,
         )
 
         # Save the model instance

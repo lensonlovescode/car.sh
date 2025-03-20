@@ -17,6 +17,7 @@ class Model(BaseModel, Base):
 
     __tablename__ = "models"
 
+    id = Column(String(60), nullable=False, primary_key=True, unique=True)
     name = Column(String(60), nullable=False)
     base_price = Column(Integer, nullable=False)
     ignition = Column(String(60), nullable=False)
