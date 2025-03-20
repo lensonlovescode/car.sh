@@ -38,3 +38,17 @@ def get_spec_models(make, category):
             my_list.append(v.to_dict())
 
     return(jsonify(my_list))
+
+@api_endpoints.route('/models', strict_slashes=False)
+def get_all_models():
+    """
+    API endpoint to get all models
+    """
+
+    my_list = []
+    models = storage.all(Model)
+
+    for k, v in models.items():
+        my_list.append(v.to_dict())
+
+    return(jsonify(my_list))

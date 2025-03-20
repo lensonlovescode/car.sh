@@ -42,19 +42,51 @@ $("#make, #category").change(function () {
     }
 });
 
-$("#open-overlay").on("click", function () {
-    $("#overlay").fadeIn();
+
+
+$.get("http://localhost:5001/api/v1/models", function (data) {
+
+    $('.catalogue-grid').empty(); 
+
+    $.each(data, function (index, model) {
+
+    // starts here
+
+    let carCard = `
+            <div class="car-card">
+                <div class="car-image">
+                    <img class="car-img" src="../static/images/mercedes.jpg">
+                </div>
+
+                <div class="car-card-contents">
+                    <h4 class="car-card-title">${model.name}</h4>
+                    <h3 class="car-description">${model.year} ${model.manufacturer}</h3>
+                    <h6 class="car-card-info">
+                        <ul class="car-specs">
+
+                            <li class="mileage"><i class="fas fa-tachometer-alt"></i> ${model.mileage} miles</li>
+                            <li class="engine-capacity"><i class="fas fa-cogs"></i>${model.engine_capacity} cc</li>
+                            <li class="transmission"><i class="fas fa-exchange-alt"></i>${model.ignition} ignition</li>
+                            <li class="fuel-type"><i class="fas fa-gas-pump"></i>${model.fuel_type}</li>
+                        </ul>
+                    </h6>
+                </div>
+                <div class="car-card-cost">
+                    <h3 class="car-card-cash">Base Price</h3>
+                    <h3 class="car-card-total">$${model.base_price}</h3>
+                    <button class="view-deal-button" id="open-overlay"><i class="fas fa-eye"></i>View deal</button>
+                </div>
+            </div>
+        `;
+
+        $('.catalogue-grid').append(carCard);
+
+    // ends here
+
+    });
 });
 
-$("#close-overlay").on("click", function () {
-    $("#overlay").fadeOut();
-});
 
-$("#overlay").on("click", function (e) {
-    if ($(e.target).is("#overlay")) { 
-        $(this).fadeOut();
-    }
-});
 
 $('#search_button').on('click', function () {
 
@@ -78,8 +110,8 @@ $('#search_button').on('click', function () {
                         </div>
 
                         <div class="car-card-contents">
-                            <h4 class="car-card-title">${model.year} ${model.manufacturer}</h4>
-                            <h3 class="car-description">${model.name}</h3>
+                            <h4 class="car-card-title">${model.name}</h4>
+                            <h3 class="car-description">${model.year} ${model.manufacturer}</h3>
                             <h6 class="car-card-info">
                                 <ul class="car-specs">
 
@@ -107,6 +139,21 @@ $('#search_button').on('click', function () {
     }
 });
 
+$("#open-overlay").on("click", function () {
+    $("#overlay").fadeIn();
+});
+
+$(".view-deal-button").on("click", function () {
+    $("#overlay").fadeOut();
+});
+
+$("#overlay").on("click", function (e) {
+    if ($(e.target).is("#overlay")) { 
+        $(this).fadeOut();
+    }
+});
 
 });
+
+
 
