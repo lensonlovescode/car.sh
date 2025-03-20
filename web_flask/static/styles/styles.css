@@ -306,9 +306,9 @@ header {
     background-color: var(--primary-blue);
 }
 
-/* Overlay */
 #overlay {
-    display: none;
+    /*display: none;*/
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -329,6 +329,10 @@ header {
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
 }
 
 #close-overlay {
@@ -340,6 +344,7 @@ header {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--dark-gray);
+    text-decoration: none;
 }
 
 .overlay-content .car-img {
