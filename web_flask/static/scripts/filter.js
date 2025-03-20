@@ -153,6 +153,19 @@ $("#overlay").on("click", function (e) {
     }
 });
 
+$('#calculate-cost').on("click", function () {
+
+    const modelName = this.closest('.car-title');
+
+    let url = `http://localhost:5001/api/v1/calculate/${modelName}`;
+
+    $.get(url, function (data) {
+        const priceTitle = this.closest('#price')
+        priceTitle.text(`Ksh ${data.price}`)
+    })
+
+});
+
 });
 
 

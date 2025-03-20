@@ -10,7 +10,7 @@ from models.manufacturer import Manufacturer
 from models.model import Model
 
 
-@api_endpoints.route('/calculate/<model_name>/<object_id>', strict_slashes=False)
+@api_endpoints.route('/calculate/<model_name>', strict_slashes=False)
 def calculate(model_name, object_id):
     """
     Calculates the import price of the item given the model name
@@ -19,8 +19,11 @@ def calculate(model_name, object_id):
     models = storage.all(Model)
 
     for key, value in models.items():
-        obj_id = key.split(".")[1]
-        if obj_id == object_id:
+        if model_name == value.name:
             price = value.calc()
+            storage.close()
             return jsonify({"price": price})
+        
+    storage.close()
+    return (jsonify({'price': 'None'}))
 
