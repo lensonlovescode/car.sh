@@ -5,7 +5,7 @@ which inherits from the Manufacturer
 """
 import uuid
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, Integer, ForeignKey
+from sqlalchemy import Column, String, Integer, ForeignKey, Double
 from sqlalchemy.orm import relationship
 from models.base_model import Base
 
@@ -22,6 +22,12 @@ class Model(BaseModel, Base):
     base_price = Column(Integer, nullable=False)
     ignition = Column(String(60), nullable=False)
     engine_capacity = Column(Integer, nullable=True)
+    year = Column(Integer, nullable=False)
+    ZeroToSixty = Column(Double, nullable=False)
+    img_path = Column(String(45), nullable=True)
+    description = Column(String(1024), nullable=True)
+    manufacturer_name = Column(String(60), nullable=True)
+    fuel = Column(String(45), nullable=True, default="Petrol")
 
     category_id = Column(String(60), ForeignKey('categories.id'), nullable=False)
     category = relationship("Category", back_populates="models")
@@ -33,7 +39,7 @@ class Model(BaseModel, Base):
     manufacturer = relationship("Manufacturer", back_populates="models")
 
 
-    def __init__(self, name, base_price, engine_capacity, ignition, category_id, fuel_type_id, manufacturer_id):
+    def __init__(self, name, base_price, engine_capacity, ignition, category_id, fuel_type_id, manufacturer_id, year, ZeroToSixty, img_path, description, manufacturer_name):
         """
         constructor for the category class
         """
@@ -44,6 +50,11 @@ class Model(BaseModel, Base):
         self.ignition = ignition
         self.category_id = category_id
         self.manufacturer_id = manufacturer_id
+        self.year = year
+        self.ZeroToSixty = ZeroToSixty
+        self.img_path = img_path
+        self.description = description
+        self.manufacturer_name = manufacturer_name
 
     def calculate(self):
         """
@@ -88,4 +99,4 @@ class Model(BaseModel, Base):
             railway_levy
         )
 
-        return total_cost
+        return total_cost * 130

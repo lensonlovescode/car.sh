@@ -37,6 +37,7 @@ def get_spec_models(make, category):
         if v.manufacturer_id == make_id and v.category_id == category_id:
             my_list.append(v.to_dict())
 
+    storage.close()
     return(jsonify(my_list))
 
 @api_endpoints.route('/models', strict_slashes=False)
@@ -51,6 +52,7 @@ def get_all_models():
     for k, v in models.items():
         my_list.append(v.to_dict())
 
+    storage.close()
     return(jsonify(my_list))
 
 # @api_endpoints.route('/models/<model_id>', strict_slashes=False)

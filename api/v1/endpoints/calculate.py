@@ -8,10 +8,11 @@ from models.category import Category
 from models.fuel_type import FuelType
 from models.manufacturer import Manufacturer
 from models.model import Model
+from flask import jsonify
 
 
-@api_endpoints.route('/calculate/<model_name>', strict_slashes=False)
-def calculate(model_name, object_id):
+@api_endpoints.route('/calculate/<model_id>', strict_slashes=False)
+def calculate(model_id):
     """
     Calculates the import price of the item given the model name
     and it's id
@@ -19,8 +20,9 @@ def calculate(model_name, object_id):
     models = storage.all(Model)
 
     for key, value in models.items():
-        if model_name == value.name:
-            price = value.calc()
+        if model_id == value.id:
+
+            price = value.calculate()
             storage.close()
             return jsonify({"price": price})
         

@@ -10,3 +10,4 @@ from api.v1.endpoints.status import *
 from api.v1.endpoints.makes import *
 from api.v1.endpoints.categories import *
 from api.v1.endpoints.models import *
+from api.v1.endpoints.calculate import *

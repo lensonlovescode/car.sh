@@ -52,25 +52,25 @@ $(document).ready(function () {
       let carCard = `
             <div class="car-card">
                 <div class="car-image">
-                    <img class="car-img" src="../static/images/mercedes.jpg">
+                    <img class="car-img" src="${model.img_path}">
                 </div>
 
                 <div class="car-card-contents">
-                    <h4 class="car-card-title">${model.name}</h4>
-                    <h3 class="car-description">${model.year} ${model.manufacturer}</h3>
+                    <h4 class="car-card-title"> ${model.manufacturer_name} ${model.name}</h4>
+                    <h3 class="car-description">${model.year}</h3>
                     <h6 class="car-card-info">
                         <ul class="car-specs">
 
-                            <li class="mileage"><i class="fas fa-tachometer-alt"></i> ${model.mileage} miles</li>
+                            <li class="mileage"><i class="fas fa-tachometer-alt"></i> ${model.ZeroToSixty} seconds</li>
                             <li class="engine-capacity"><i class="fas fa-cogs"></i>${model.engine_capacity} cc</li>
                             <li class="transmission"><i class="fas fa-exchange-alt"></i>${model.ignition} ignition</li>
-                            <li class="fuel-type"><i class="fas fa-gas-pump"></i>${model.fuel_type}</li>
+                            <li class="fuel-type"><i class="fas fa-gas-pump"></i>${model.fuel}</li>
                         </ul>
                     </h6>
                 </div>
                 <div class="car-card-cost">
                     <h3 class="car-card-cash">Base Price</h3>
-                    <h3 class="car-card-total">Ksh ${model.base_price}</h3>
+                    <h3 class="car-card-total">&pound;${model.base_price}</h3>
                     <button class="view-deal-button" id="open-overlay_${model.id}" onclick="handleViewDeal(this)"><i class="fas fa-eye"></i>View deal</button>
                 </div>
             </div>
@@ -102,45 +102,27 @@ $(document).ready(function () {
           let carCard = `
                     <div class="car-card">
                         <div class="car-image">
-                            <img class="car-img" src="../static/images/mercedes.jpg">
+                            <img class="car-img" src="${model.img_path}">
                         </div>
-
                         <div class="car-card-contents">
                             <h4 class="car-card-title">${model.name}</h4>
-                            <h3 class="car-description">${model.year} ${
-            model.manufacturer
-          }</h3>
+                            <h3 class="car-description"> ${model.manufacturer_name} ${model.year}</h3>
                             <h6 class="car-card-info">
                                 <ul class="car-specs">
-
-                                    <li class="mileage"><i class="fas fa-tachometer-alt"></i> ${
-                                      model.mileage
-                                    } miles</li>
-                                    <li class="engine-capacity"><i class="fas fa-cogs"></i>${
-                                      model.engine_capacity
-                                    } cc</li>
-                                    <li class="transmission"><i class="fas fa-exchange-alt"></i>${
-                                      model.ignition
-                                    } ignition</li>
-                                    <li class="fuel-type"><i class="fas fa-gas-pump"></i>${
-                                      model.fuel_type
-                                    }</li>
+                                    <li class="mileage"><i class="fas fa-tachometer-alt"></i> ${model.mileage} miles</li>
+                                    <li class="engine-capacity"><i class="fas fa-cogs"></i>${model.engine_capacity} cc</li>
+                                    <li class="transmission"><i class="fas fa-exchange-alt"></i>${model.ignition} ignition</li>
+                                    <li class="fuel-type"><i class="fas fa-gas-pump"></i>${model.fuel_type}</li>
                                 </ul>
                             </h6>
                         </div>
                         <div class="car-card-cost">
                             <h3 class="car-card-cash">Base Price</h3>
-                            <h3 class="car-card-total">$. ${
-                              model.base_price
-                            }</h3>
-                            <button 
-                              class="view-deal-button" 
-                              data-model='${JSON.stringify(model).replace(
-                                /'/g,
-                                "&apos;"
-                              )}' 
-                              id="open-overlay">
-                            <i class="fas fa-eye"></i>View deal</button>
+                            <h3 class="car-card-total">&pound;${model.base_price}</h3>
+                            <button class="view-deal-button"
+                                data-model='${JSON.stringify(model).replace(/'/g, "&apos;")}' id="open-overlay_${model.id}" onclick="handleViewDeal(this)">
+                            <i class="fas fa-eye"></i>View deal
+                            </button>
                         </div>
                     </div>
                 `;
@@ -153,19 +135,13 @@ $(document).ready(function () {
     }
   });
 
-  $("#open-overlay").on("click", function () {
-    $("#overlay").fadeIn();
-  });
-
-  $(".view-deal-button").on("click", function () {
-    $("#overlay").fadeOut();
-  });
-
-  $("#overlay").on("click", function (e) {
+ 
+$("#overlay").on("click", function (e) {
     if ($(e.target).is("#overlay")) {
       $(this).fadeOut();
     }
   });
+  
 });
 
 async function handleViewDeal(button) {
@@ -179,23 +155,44 @@ async function handleViewDeal(button) {
   const overlay_content = document.getElementById("overlay-content");
   overlay_content.innerHTML = `
             <button id="close-overlay"><i class="fas fa-times"></i></button>
-            <img class="car-img" src="../static/images/merc_4.jpg" alt="Car Image">
-            <h2 class="car-title">Car Model Year - 2009</h2>
-            <h3 class="car-description">Model Name - ${car.name}</h3>
+            <img class="car-img" src="${car.img_path}" alt="Car Image">
+            <h2 class="car-title">${car.name} - ${car.year}</h2>
+            <h3 class="car-description">${car.manufacturer_name}</h3>
             
             <ul class="car-specs">
-                <li><strong><i class="fas fa-tachometer-alt"></i> Mileage:</strong> <span id="mileage">N/A</span> miles</li>
-                <li><strong><i class="fas fa-cogs"></i> Engine:</strong> <span id="engine">N/A</span> L</li>
-                <li><strong><i class="fas fa-exchange-alt"></i> Transmission:</strong> <span id="transmission">N/A</span></li>
-                <li><strong><i class="fas fa-gas-pump"></i> Fuel Type:</strong> <span id="fuel-type">N/A</span></li>
+                <li><strong><i class="fas fa-tachometer-alt"></i> Zero To Sixty: </strong> <span id="mileage">${car.ZeroToSixty}</span> Seconds</li>
+                <li><strong><i class="fas fa-cogs"></i> Capacity: </strong> <span id="engine">${car.engine_capacity} cc</span></li>
+                <li><strong><i class="fas fa-exchange-alt"></i> Transmission: </strong> <span id="transmission">${car.transmission}</span></li>
+                <li><strong><i class="fas fa-gas-pump"></i> Fuel Type: </strong> <span id="fuel-type">${car.fuel}</span></li>
             </ul>
-    
             <div class="car-price">
-                <h3>Price: <span id="price">Ksh ${car.base_price}</span></h3>
+                <h3 id="TheFinalPrice">Price: <span id="price">&pound;${car.base_price}</span></h3>
             </div>
-    
-            <button id="calculate-cost"><i class="fas fa-calculator"></i> Calculate Shipping</button>
+            <button id="calculate-cost" car_id="${car_id}" onclick="CalculatePrice(this)"><i class="fas fa-calculator"></i> Calculate Shipping</button>
 `;
   overlay.style.display = "flex";
   console.log({ car });
+}
+
+async function CalculatePrice(button) {
+    
+
+    console.log('Meee!')
+
+    const car_id = button.getAttribute("car_id");
+
+    const url = `http://localhost:5001/api/v1/calculate/${car_id}`
+
+
+    $.get(url, function (data) {
+
+        console.log('Here!')
+        price = data.price
+        base_no = `Price: Kes ${price}`
+        $('#TheFinalPrice').html(base_no)
+        console.log(base_no)
+
+    })
+
+    
 }

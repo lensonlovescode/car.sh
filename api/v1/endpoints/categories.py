@@ -18,4 +18,5 @@ def get_categories():
     for k, v in my_dict.items():
         my_list.append(v.to_dict())
 
+    storage.close()
     return jsonify(my_list)
