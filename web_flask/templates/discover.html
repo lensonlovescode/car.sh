@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Carsh</title>
+        <link rel="stylesheet" href="../static/styles/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="icon" href="../static/images/default.jpg" type="image/jpg" style="border-radius: 20px;">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="../static/scripts/filter.js"></script>
+    </head>
+<body>
+    <header style="margin-bottom: 30px;">
+        <nav>
+            <div class="navbar">
+                <div class="logo">
+                    <a href="{{ url_for('app_pages.main_page') }}">Carsh</a>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('app_pages.main_page') }}"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="{{ url_for('app_pages.discover_page') }}"><i class="fas fa-compass"></i> Discover</a></li>
+                    <li><a href="{{ url_for('app_pages.howto') }}"><i class="fas fa-file-import"></i> How to Import</a></li>
+                    <li><a href=" {{ url_for('app_pages.faq') }}" class="active"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li><a href="####"><i class="fas fa-search"></i> Search</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    
+    <div class="catalogue-grid" style="margin: 20px;">
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col about-us">
+                    <h5>About Us</h5>
+                    <p>Carsh is a service that aims to provide services in calculation and lookup import taxes and tarriffs to be incurred when buying a motor vehicle.</p>
+                </div>
+                <div class="footer-col quick-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="{{ url_for('app_pages.main_page')}}"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="{{ url_for('app_pages.howto') }}"><i class="fas fa-cog"></i> How to Import</a></li>
+                        <li><a href="{{ url_for('app_pages.faq') }}"><i class="fas fa-envelope"></i> FAQs</a></li>
+                        <li><a href="####" target="_blank"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col follow-us">
+                    <h5>Follow Us</h5>
+                    <ul class="social-icons">
+                        <li><a target="_blank" href="https://facebook.com/carsh"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a target="_blank" href="https://twitter.com/@carsh"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a target="_blank" href="https://instagram.com/@carsh"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-rights">
+                <h6>All rights reserved. Carsh. 2025</h6>
+            </div>
+        </div>
+       </footer>
+    <script src="../static/scripts/main.js"></script>
+</body>
+</html>

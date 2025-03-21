@@ -1,13 +1,16 @@
-from web_flask.pages import web
+#!/usr/bin/python3
+"""
+Routes for other pages
+"""
+from web_flask.pages import app_pages
 from flask import render_template
 
-@web.route('/howto', strict_slashes=False)
+
+
+@app_pages.route('/howto', strict_slashes=False)
 def howto():
     return render_template("howto.html")
 
-@web.route('/faq', strict_slashes=False)
+@app_pages.route('/faq', strict_slashes=False)
 def faq():
     return render_template("faq.html")
-
-if __name__ == '__main__':
-    app.run(debug=True)

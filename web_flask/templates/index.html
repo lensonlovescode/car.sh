@@ -14,19 +14,21 @@
     <script src="../static/scripts/filter.js"></script>
 </head>
 <body>
+
    <header>
     <nav>
         <div class="navbar">
             <div class="logo">
-                <a href="{{ url_for('app_pages.main_page') }}">Car_sh</a>
+                <a href="{{ url_for('app_pages.main_page') }}">Carsh</a>
             </div>
             <div class="menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
                 <li><a href="{{ url_for('app_pages.main_page') }}"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="###"><i class="fas fa-compass"></i> Discover</a></li>
-                <li><a href="{{ url_for('web.howto') }}"><i class="fas fa-file-import"></i> How to Import</a></li>
+                <li><a href="{{ url_for('app_pages.discover_page') }}"><i class="fas fa-compass"></i> Discover</a></li>
+                <li><a href="{{ url_for('app_pages.howto') }}"><i class="fas fa-file-import"></i> How to Import</a></li>
+                <li><a href=" {{ url_for('app_pages.faq') }}" class="active"><i class="fas fa-question-circle"></i> FAQs</a></li>
                 <li><a href="####"><i class="fas fa-search"></i> Search</a></li>
             </ul>
         </div>
@@ -93,8 +95,8 @@
                 <h5>Quick Links</h5>
                 <ul>
                     <li><a href="{{ url_for('app_pages.main_page')}}"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="{{ url_for('web.howto') }}"><i class="fas fa-cog"></i> How to Import</a></li>
-                    <li><a href="{{ url_for('web.faq') }}"><i class="fas fa-envelope"></i> FAQs</a></li>
+                    <li><a href="{{ url_for('app_pages.howto') }}"><i class="fas fa-cog"></i> How to Import</a></li>
+                    <li><a href="{{ url_for('app_pages.faq') }}"><i class="fas fa-envelope"></i> FAQs</a></li>
                     <li><a href="####" target="_blank"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
                 </ul>
             </div>

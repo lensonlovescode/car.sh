@@ -1,6 +1,7 @@
 let dataInOverlay = {};
 let overlayOpen = false;
 let data;
+
 $(document).ready(function () {
   $.get("http://localhost:5001/api/v1/makes", function (data) {
     $.each(data, function (index, make) {
@@ -47,7 +48,6 @@ $(document).ready(function () {
     $(".catalogue-grid").empty();
 
     $.each(data, function (index, model) {
-      // starts here
 
       let carCard = `
             <div class="car-card">
@@ -71,19 +71,13 @@ $(document).ready(function () {
                 <div class="car-card-cost">
                     <h3 class="car-card-cash">Base Price</h3>
                     <h3 class="car-card-total">&pound;${model.base_price}</h3>
-                    <button class="view-deal-button" id="open-overlay_${model.id}" onclick="handleViewDeal(this)"><i class="fas fa-eye"></i>View deal</button>
+                    <button class="view-deal-button" id="open-overlay_${model.id}" onclick="handleViewDeal(this)"><i class="fas fa-eye"></i>View</button>
                 </div>
             </div>
         `;
 
       $(".catalogue-grid").append(carCard);
 
-      // var carCardBtn = document.getElementById("open-overlay-${model.id}");
-      // carCardBtn.addEventListener("click", () => {
-      //   console.log("Hello There!");
-      // });
-
-      // ends here
     });
   });
 
@@ -97,7 +91,6 @@ $(document).ready(function () {
       $(".catalogue-grid").empty();
       $.get(url, function (data) {
         $.each(data, function (index, model) {
-          // starts here
 
           let carCard = `
                     <div class="car-card">
@@ -121,15 +114,13 @@ $(document).ready(function () {
                             <h3 class="car-card-total">&pound;${model.base_price}</h3>
                             <button class="view-deal-button"
                                 data-model='${JSON.stringify(model).replace(/'/g, "&apos;")}' id="open-overlay_${model.id}" onclick="handleViewDeal(this)">
-                            <i class="fas fa-eye"></i>View deal
-                            </button>
+                            <i class="fas fa-eye"></i>View</button>
                         </div>
                     </div>
                 `;
 
           $(".catalogue-grid").append(carCard);
 
-          // ends here
         });
       });
     }
