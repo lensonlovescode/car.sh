@@ -3,7 +3,7 @@ let overlayOpen = false;
 let data;
 
 $(document).ready(function () {
-  $.get("http://localhost:5001/api/v1/makes", function (data) {
+  $.get("/api/v1/makes", function (data) {
     $.each(data, function (index, make) {
       let option = $("<option></option>").text(make.name);
       option.val(make.name);
@@ -11,7 +11,7 @@ $(document).ready(function () {
     });
   });
 
-  $.get("http://localhost:5001/api/v1/categories", function (data) {
+  $.get("/api/v1/categories", function (data) {
     $.each(data, function (index, category) {
       let option = $("<option></option>").text(category.name);
       option.val(category.name);
@@ -30,7 +30,7 @@ $(document).ready(function () {
     }
 
     if (Make && Category) {
-      let url = `http://localhost:5001/api/v1/makes/${Make}/${Category}`;
+      let url = `/api/v1/makes/${Make}/${Category}`;
       console.log(url);
       $.get(url, function (data) {
         $.each(data, function (index, model) {
@@ -43,7 +43,7 @@ $(document).ready(function () {
     }
   });
 
-  $.get("http://localhost:5001/api/v1/models", function (data) {
+  $.get("/api/v1/models", function (data) {
     data = data;
     $(".catalogue-grid").empty();
 
@@ -87,7 +87,7 @@ $(document).ready(function () {
     const Model = $("#model").val();
 
     if ($("#make").val() !== "None" || $("#category").val() !== "None") {
-      let url = `http://localhost:5001/api/v1/makes/${Make}/${Category}`;
+      let url = `/api/v1/makes/${Make}/${Category}`;
       $(".catalogue-grid").empty();
       $.get(url, function (data) {
         $.each(data, function (index, model) {
@@ -137,7 +137,7 @@ $("#overlay").on("click", function (e) {
 
 async function handleViewDeal(button) {
   const car_id = button.id.split("_")[1];
-  const url = `http://localhost:5001/api/v1/models`;
+  const url = `/api/v1/models`;
   const response = await fetch(url);
   const data = await response.json();
   const car = data.find((item) => item.id == car_id);
@@ -172,7 +172,7 @@ async function CalculatePrice(button) {
 
     const car_id = button.getAttribute("car_id");
 
-    const url = `http://localhost:5001/api/v1/calculate/${car_id}`
+    const url = `/api/v1/calculate/${car_id}`
 
 
     $.get(url, function (data) {
